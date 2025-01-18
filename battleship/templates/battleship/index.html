@@ -1,0 +1,41 @@
+{% extends 'base_page.html' %}
+
+{% block title %}Battleship | game {{ GAME_ID }}{% endblock %}
+
+{% load static %}
+
+{% block head-after %}
+    <link rel="stylesheet" href="{% static 'battleship/css/style.css' %}"/>
+{% endblock %}
+
+
+{% block body %}
+    <div>Время последнего обновления: <span id="state-time"></span></div>
+    <script>document.getElementById('state-time').innerText = new Date({{ TIME }} * 1000).toLocaleString('ru-RU');</script>
+    <br>
+    <div>
+        <span>Команда 1:</span>
+        <ul class="stats" id="stats0">
+          <li class="score">Общий счёт: <span></span></li>
+          <li class="shots">Мимо: <span></span></li>
+          <li class="injury">Ранено: <span></span></li>
+          <li class="kills">Убито: <span></span></li>
+        </ul>
+    </div>
+    <br>
+    <div>
+        <span>Команда 2:</span>
+        <ul class="stats" id="stats1">
+          <li class="score">Общий счёт: <span></span></li>
+          <li class="shots">Мимо: <span></span></li>
+          <li class="injury">Ранено: <span></span></li>
+          <li class="kills">Убито: <span></span></li>
+        </ul>
+    </div>
+
+    <div id="states">
+        <table id="team0"></table>
+        <table id="team1"></table>
+    </div>
+    <script>{% include 'battleship/js/state.js' %}</script>
+{% endblock %}

@@ -1,0 +1,104 @@
+body {
+    font-family: 'DejaVu Sans Mono', monospace;
+    background-color: white;
+}
+
+#states {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+#states table {
+    border-collapse: collapse;
+}
+
+#states td, #states th {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    font-weight: bold;
+}
+
+#states th {
+    font-weight: normal;
+}
+
+#states .name {
+    border-right: 1px solid black;
+    padding: 0 10px;
+    text-wrap: nowrap;
+    width: 200px;
+    min-width: 200px;
+}
+
+#states .problem {
+    border-bottom: 1px solid black;
+}
+
+#states .s3 {
+    background-color: rgba(255, 0, 0, 0.19);
+    border: 2px dashed red;
+    color: red;
+    font-weight: bold;
+}
+
+#states .s2 {
+    color: red;
+    font-weight: bold;
+    background-color: #ffa70030;
+}
+
+#states .s1 {
+    background-color: #d1d1d130;
+}
+
+.stats {
+    margin: 0;
+}
+
+.stats .score {
+    font-weight: bold;
+}
+
+/* highlight on hover */
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    overflow: hidden;
+    z-index: 1;
+}
+
+td, th {
+    position: relative;
+}
+
+td:hover::before {
+    background-color: #00ff2715 !important;
+    content: '\00a0';
+    height: 100%;
+    left: -5000px;
+    position: absolute;
+    top: 0;
+    width: 10000px;
+    z-index: -1;
+}
+
+td:hover::after {
+    background-color: #00ff2715 !important;
+    content: '\00a0';
+    height: 10000px;
+    left: 0;
+    position: absolute;
+    top: -5000px;
+    width: 100%;
+    z-index: -1;
+}
+
